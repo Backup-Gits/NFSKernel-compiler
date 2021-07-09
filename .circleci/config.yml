@@ -13,7 +13,6 @@ jobs:
            dpkg-reconfigure --frontend noninteractive tzdata
            curl https://raw.githubusercontent.com/AnGgIt86/NFSKernel-compiler/master/kernel_build.sh -o kernel_build.sh
            source ./kernel_build.sh
-           no_output_timeout : 5h
 workflows:
   version: 2.1
   cooking:
