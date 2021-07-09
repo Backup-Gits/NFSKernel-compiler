@@ -23,12 +23,12 @@ git config --global user.name "AnGgIt86"
 echo "Downloading few Dependecies . . ."
 # Kernel Sources
 git clone --depth=1 $KERNEL_SOURCE -b $KERNEL_BRANCH $DEVICE_CODENAME
-git clone --depth=1 https://github.com/AnGgIt86/NFS-TC.git NFS-Toolchain # xRageTC set as Clang Default
+git clone --depth=1 https://github.com/kdrag0n/proton-clang Proton # xRageTC set as Clang Default
 
 # Main Declaration
 KERNEL_ROOTDIR=$(pwd)/$DEVICE_CODENAME # IMPORTANT ! Fill with your kernel source root directory.
 DEVICE_DEFCONFIG=$DEVICE_DEFCONFIG # IMPORTANT ! Declare your kernel source defconfig file here.
-CLANG_ROOTDIR=$(pwd)/NFS-Toolchain # IMPORTANT! Put your clang directory here.
+CLANG_ROOTDIR=$(pwd)/Proton # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=$BUILD_USER # Change with your own name or else.
 export KBUILD_BUILD_HOST=$BUILD_HOST # Change with your own hostname.
 
