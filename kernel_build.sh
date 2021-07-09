@@ -23,16 +23,19 @@ git config --global user.name "AnGgIt86"
 echo "Downloading few Dependecies . . ."
 # Kernel Sources
 git clone --depth=1 $KERNEL_SOURCE -b $KERNEL_BRANCH $DEVICE_CODENAME
-git clone --depth=1 https://github.com/mvaisakh/gcc-arm64 GCC # xRageTC set as Clang Default
+git clone --depth=1 https://github.com/mvaisakh/gcc-arm64 GCC # xRageTC set as GCC Default
 
 # Main Declaration
 KERNEL_ROOTDIR=$(pwd)/$DEVICE_CODENAME # IMPORTANT ! Fill with your kernel source root directory.
 DEVICE_DEFCONFIG=$DEVICE_DEFCONFIG # IMPORTANT ! Declare your kernel source defconfig file here.
-GCC_ROOTDIR=$(pwd)/GCC # IMPORTANT! Put your clang directory here.
+GCC_ROOTDIR=$(pwd)/GCC # IMPORTANT! Put your GCC directory here.
 export KBUILD_BUILD_USER=$BUILD_USER # Change with your own name or else.
 export KBUILD_BUILD_HOST=$BUILD_HOST # Change with your own hostname.
 
 # Main Declaration
+GCC_VER="$("$GCC_ROOTDIR"/bin/aarch64-elf-gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')"
+LLD_VER="$("$GCC_ROOTDIR"/bin/ld.lld --version | head -n 1)"
+export KBUILD_COMPILER_STRING="$GCC_VER with $LLD_VER"
 IMAGE=$(pwd)/$DEVICE_CODENAME/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
@@ -72,7 +75,7 @@ tg_post_msg() {
 }
 
 # Post Main Information
-tg_post_msg "<b>NFSKernel-compiler</b>%0ABuilder Name : <code>${KBUILD_BUILD_USER}</code>%0ABuilder Host : <code>${KBUILD_BUILD_HOST}</code>%0ADevice Defconfig: <code>${DEVICE_DEFCONFIG}</code>%0AClang Version : <code>${KBUILD_COMPILER_STRING}</code>%0AClang Rootdir : <code>${CLANG_ROOTDIR}</code>%0AKernel Rootdir : <code>${KERNEL_ROOTDIR}</code>"
+tg_post_msg "<b>NFSKernel-compiler</b>%0ABuilder Name : <code>${KBUILD_BUILD_USER}</code>%0ABuilder Host : <code>${KBUILD_BUILD_HOST}</code>%0ADevice Defconfig: <code>${DEVICE_DEFCONFIG}</code>%0AGCC Version : <code>${KBUILD_COMPILER_STRING}</code>%0AGCC Rootdir : <code>${GCC_ROOTDIR}</code>%0AKernel Rootdir : <code>${KERNEL_ROOTDIR}</code>"
 
 # Compile
 compile(){
