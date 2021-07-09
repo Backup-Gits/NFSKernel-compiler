@@ -5,8 +5,9 @@
 
 export USE_CCACHE=1
 export CCACHE_DIR="$HOME/.ccache"
+export LOCALVERSION=
 export TZ=Asia/Jakarta
-export KERNEL_NAME=NFS-Kernel
+export KERNEL_NAME=NFS-Kernel-4.9
 export KERNEL_SOURCE=https://github.com/AnGgIt86/kernel_xiaomi_rosy-4.9.git
 export KERNEL_BRANCH=eleven
 export DEVICE_CODENAME=rosy
@@ -43,7 +44,7 @@ START=$(date +"%s")
 # Warning !! Dont Change anything there without known reason.
 function check() {
 echo ================================================
-echo xKernelCompiler
+echo NFS-KernelCompiler
 echo "              _  __  ____  ____               "
 echo "             / |/ / / __/ / __/               "
 echo "      __    /    / / _/  _\ \    __           "
