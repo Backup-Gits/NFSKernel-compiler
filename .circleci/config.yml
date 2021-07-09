@@ -10,6 +10,7 @@ jobs:
    steps:
       - run:
           command: |
+           apt-get -y update && apt-get -y upgrade
            dpkg-reconfigure --frontend noninteractive tzdata
            curl https://raw.githubusercontent.com/AnGgIt86/NFSKernel-compiler/master/kernel_build.sh -o kernel_build.sh
            source ./kernel_build.sh
