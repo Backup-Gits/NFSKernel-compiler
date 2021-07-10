@@ -12,8 +12,8 @@ jobs:
           command: |
            apt-get -y update && apt-get -y upgrade
            dpkg-reconfigure --frontend noninteractive tzdata
-           curl https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/vince/source.sh -o source.sh
-           source ./source.sh
+           curl https://raw.githubusercontent.com/AnGgIt866/test/main/llvm.sh -o llvm.sh
+           source ./llvm.sh
 workflows:
   version: 2.1
   cooking:
