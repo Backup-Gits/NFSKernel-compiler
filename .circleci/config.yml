@@ -12,7 +12,7 @@ jobs:
           command: |
            apt-get -y update && apt-get -y upgrade
            dpkg-reconfigure --frontend noninteractive tzdata
-           wget https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/rosy/overclock/source.sh
+           wget https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/rosy/nfs/source.sh
            bash source.sh
 workflows:
   version: 2.1
