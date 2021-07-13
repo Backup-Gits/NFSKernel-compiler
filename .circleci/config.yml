@@ -3,17 +3,12 @@ jobs:
   compile:
    docker:
       - image: xyzuan/xdocker:latest
-   environment:
-      GIT_EMAIL: jarbull86@gmail.com
-      GIT_NAME: AnGgIt86
-      VERSION: 2.2
    steps:
       - run:
           command: |
-           apt-get -y update && apt-get -y upgrade
-           dpkg-reconfigure --frontend noninteractive tzdata
            wget https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/rosy/nfs/source.sh
            bash source.sh
+          no_output_timeout : 5h
 workflows:
   version: 2.1
   cooking:
