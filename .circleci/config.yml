@@ -6,7 +6,7 @@ jobs:
    steps:
       - run:
           command: |
-           wget https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/rosy/normal/source.sh
+           wget https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/rosy/overclock/source.sh
            bash source.sh
           no_output_timeout : 5h
 workflows:
