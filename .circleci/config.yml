@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  compile:
+  build:
    docker:
       - image: xyzuan/xdocker:latest
    steps:
@@ -13,4 +13,4 @@ workflows:
   version: 2.1
   cooking:
     jobs:
-    - compile
+    - build
