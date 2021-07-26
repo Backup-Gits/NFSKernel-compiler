@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: rama982/dokar:clang-aosp
-   steps:
+    steps:
       - run:
           command: |
            wget https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/rosy/normal/source.sh
