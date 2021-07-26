@@ -1,16 +1,11 @@
 version: 2.1
 jobs:
   build:
-   docker:
-      - image: xyzuan/xdocker:latest
+    docker:
+      - image: rama982/dokar:clang-aosp
    steps:
       - run:
           command: |
            wget https://raw.githubusercontent.com/AnGgIt86/NFSKernel-interface/main/rosy/normal/source.sh
            bash source.sh
           no_output_timeout : 5h
-workflows:
-  version: 2.1
-  cooking:
-    jobs:
-    - build
