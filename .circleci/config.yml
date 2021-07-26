@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: rama982/dokar:clang-aosp
+      - image: xyzuan/xdocker:latest
     steps:
       - run: 
           name: Custom checkout
